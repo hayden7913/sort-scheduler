@@ -15,5 +15,7 @@
     "type": "git",
     "url": "git@github.com:rafaelquintanilha/experiments.git"
   },
-
+  "dependencies": {
+    "react": "^0.14.7"
+  }
 }
