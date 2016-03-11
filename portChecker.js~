@@ -1,0 +1,30 @@
+var net = require('net');
+
+var server;
+
+var AVAILABLE_PORT = 3000;
+var isAvailable = false;
+var increment = 0;
+
+while ( !isAvailable ) {
+  server = net.createServer();
+  
+  server.once('error', function(err) {
+    if (err.code === 'EADDRINUSE') {
+  	  console.log(err);
+      // port is currently in use
+    }
+  });
+
+  server.once('listening', function() {
+    console.log("Port is available!");
+    isAvailable = true;
+    server.close();
+  });
+  
+  server.listen(AVAILABLE_PORT + i);
+
+  increment++;
+}
+
+console.log(i);
