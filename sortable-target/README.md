@@ -1,11 +1,5 @@
-This repo illustrates how to write React with ES6 in a minimal webpack configuration. For your convenience, webpack-dev-server is also present. Note that you do not need it: you might just generate the bundle and then load from your server using something like http-server.
+Sortable Multi Targets with React DnD.
 
-To run this example:
+Check the [tutorial](http://rafaelquintanilha.com/sortable-targets-with-react-dnd/) and the [live example](http://rafaelquintanilha.com/apps/sortabletargets/).
 
-```shell
-npm start
-```
-
-Then go to [localhost:8080](http://localhost:8080).
-
-Note that in order to make this project simple, React Hot Reload is not present.
+A fusion between [Simple Sortable](https://gaearon.github.io/react-dnd/examples-sortable-simple.html) and [Single Target](https://gaearon.github.io/react-dnd/examples-dustbin-single-target.html).

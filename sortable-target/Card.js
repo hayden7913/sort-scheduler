@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
@@ -10,6 +10,20 @@ const style = {
 	backgroundColor: 'white',
 	cursor: 'move'
 };
+
+class Card extends Component {
+
+	render() {
+		const { card, isDragging, connectDragSource, connectDropTarget } = this.props;
+		const opacity = isDragging ? 0 : 1;
+
+		return connectDragSource(connectDropTarget(
+			<div style={{ ...style, opacity }}>
+				{card.text}
+			</div>
+		));
+	}
+}
 
 const cardSource = {
 
@@ -81,29 +95,6 @@ const cardTarget = {
 		}		
 	}
 };
-
-class Card extends Component {
-
-	static propTypes = {
-		connectDragSource: PropTypes.func.isRequired,
-		connectDropTarget: PropTypes.func.isRequired,
-		index: PropTypes.number.isRequired,
-		isDragging: PropTypes.bool.isRequired,
-		card: PropTypes.object.isRequired,
-		moveCard: PropTypes.func.isRequired
-	};
-
-	render() {
-		const { card, isDragging, connectDragSource, connectDropTarget } = this.props;
-		const opacity = isDragging ? 0 : 1;
-
-		return connectDragSource(connectDropTarget(
-			<div style={{ ...style, opacity }}>
-				{card.text}
-			</div>
-		));
-	}
-}
 
 export default flow(
 	DropTarget("CARD", cardTarget, connect => ({

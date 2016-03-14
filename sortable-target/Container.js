@@ -29,8 +29,7 @@ class Container extends Component {
 	}
 
 	moveCard(dragIndex, hoverIndex) {
-		const { cards } = this.state;
-		const targetList = this.props.id;
+		const { cards } = this.state;		
 		const dragCard = cards[dragIndex];
 
 		this.setState(update(this.state, {
@@ -53,10 +52,8 @@ class Container extends Component {
 			border: '1px dashed gray'
 		};
 
-		let backgroundColor = '#FFF';
-		if (isActive) {
-			backgroundColor = 'lightgreen';
-		}
+		const backgroundColor = isActive ? 'lightgreen' : '#FFF';
+
 		return connectDropTarget(
 			<div style={{...style, backgroundColor}}>
 				{cards.map((card, i) => {
@@ -65,8 +62,7 @@ class Container extends Component {
 							key={card.id}
 							index={i}
 							listId={this.props.id}
-							card={card}							
-							pushCard={this.pushCard.bind(this)}
+							card={card}														
 							removeCard={this.removeCard.bind(this)}
 							moveCard={this.moveCard.bind(this)} />
 					);
@@ -90,6 +86,5 @@ const cardTarget = {
 export default DropTarget("CARD", cardTarget, (connect, monitor) => ({
 	connectDropTarget: connect.dropTarget(),
 	isOver: monitor.isOver(),
-	canDrop: monitor.canDrop(),
-	isOverCurrent: monitor.isOver({ shallow: true })
+	canDrop: monitor.canDrop()
 }))(Container);
