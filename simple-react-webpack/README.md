@@ -6,6 +6,6 @@ To run this example:
 npm start
 ```
 
-Then go to [localhost:8080](http://localhost:8080).
+Then go to [localhost:3000](http://localhost:3000).
 
-Note that in order to make this project simple, React Hot Reload is not present.
+Note that in order to make this project simple, we are using a minimal React Hot Reload config.
