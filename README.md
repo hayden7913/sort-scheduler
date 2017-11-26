@@ -1,21 +1,5 @@
-How to use this folder
-======================
+Sortable Multi Targets with React DnD.
 
-The aim here is to test simple pages and make experiments with static files.
-For the projects without webpack-dev-server, go to the folder and then run (if you have http-server installed through ```npm install http-server --g```:
+Check the [tutorial](http://rafaelquintanilha.com/sortable-targets-with-react-dnd/) and the [live example](http://rafaelquintanilha.com/apps/sortabletargets/).
 
-```shell
-$ http-server [pathname] [options]
-```
-
-To run locally, instead:
-
-```shell
-$ node bin/http-server [pathname] [options]
-```
-
-Then go to [the address](http://localhost:8080) and test the project!
-
-Check the [documentation for http-server](https://github.com/indexzero/http-server).
-
-If you are testing using webpack-dev-server instead, you do not need http-server. Check the README.md for the folder to see the correct way to run.
+A fusion between [Simple Sortable](https://gaearon.github.io/react-dnd/examples-sortable-simple.html) and [Single Target](https://gaearon.github.io/react-dnd/examples-dustbin-single-target.html).
