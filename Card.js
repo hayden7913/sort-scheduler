@@ -3,6 +3,8 @@ import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
 
+import EditInlineText from './EditInlineText';
+
 const style = {
 	border: '1px dashed gray',
 	padding: '0.5rem 1rem',
@@ -19,6 +21,7 @@ class Card extends Component {
 
 		return connectDragSource(connectDropTarget(
 			<div style={{ ...style, opacity }}>
+				<EditInlineText text="Card Name" />
 				{card.text}
 			</div>
 		));
@@ -26,9 +29,9 @@ class Card extends Component {
 }
 
 const cardSource = {
-
-	beginDrag(props) {		
-		return {			
+	beginDrag(props) {
+		console.log(props.card)
+		return {
 			index: props.index,
 			listId: props.listId,
 			card: props.card
@@ -37,7 +40,7 @@ const cardSource = {
 
 	endDrag(props, monitor) {
 		const item = monitor.getItem();
-		const dropResult = monitor.getDropResult();	
+		const dropResult = monitor.getDropResult();
 
 		if ( dropResult && dropResult.listId !== item.listId ) {
 			props.removeCard(item.index);
@@ -50,7 +53,7 @@ const cardTarget = {
 	hover(props, monitor, component) {
 		const dragIndex = monitor.getItem().index;
 		const hoverIndex = props.index;
-		const sourceListId = monitor.getItem().listId;	
+		const sourceListId = monitor.getItem().listId;
 
 		// Don't replace items with themselves
 		if (dragIndex === hoverIndex) {
@@ -92,7 +95,7 @@ const cardTarget = {
 			// but it's good here for the sake of performance
 			// to avoid expensive index searches.
 			monitor.getItem().index = hoverIndex;
-		}		
+		}
 	}
 };
 

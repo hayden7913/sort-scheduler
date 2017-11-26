@@ -13,7 +13,7 @@ class App extends Component {
 		}
 
 		const listOne = [
-			{ id: 1, text: "Item 1" },
+			{ id: 1, text: "fdsa 1" },
 			{ id: 2, text: "Item 2" },
 			{ id: 3, text: "Item 3" }
 		];
@@ -24,17 +24,10 @@ class App extends Component {
 			{ id: 6, text: "Item 6" }
 		];
 
-		const listThree = [
-			{ id: 7, text: "Item 7" },
-			{ id: 8, text: "Item 8" },
-			{ id: 9, text: "Item 9" }
-		];
-
 		return (
 			<div style={{...style}}>
 				<Container id={1} list={listOne} />
 				<Container id={2} list={listTwo} />
-				<Container id={3} list={listThree} />
 			</div>
 		);
 	}
